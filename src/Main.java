@@ -18,10 +18,10 @@ public class Main {
             ArrayList<String> patientName= new ArrayList<>();
             ArrayList<String> patientCondition=new ArrayList<>();
             ArrayList<String> date=new ArrayList<>();
-        ArrayList<String> docName=new ArrayList<>();
-        ArrayList<String> doctorSpecs=new ArrayList<>();
-        ArrayList<String> nurseName=new ArrayList<>();
-        ArrayList<String> nurseShift=new ArrayList<>();
+            ArrayList<String> docName=new ArrayList<>();
+            ArrayList<String> doctorSpecs=new ArrayList<>();
+            ArrayList<String> nurseName=new ArrayList<>();
+            ArrayList<String> nurseShift=new ArrayList<>();
             while (true) {
                 System.out.println("-------------Menu----------------");
                 System.out.println("1. Add Patient Details");
