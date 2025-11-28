@@ -12,10 +12,10 @@ import java.util.*;
 
     }
 
-class Doctors{
+class Doctor{
      String doctorName;
      String specialist;
-    public Doctors(String doctorName, String specialist){
+    public Doctor(String doctorName, String specialist){
         this.doctorName=doctorName;
         this.specialist=specialist;
 
@@ -23,11 +23,11 @@ class Doctors{
 
 
 }
-class Nurses{
+class Nurse{
         String nurseName;
         String nurseShift;
 
-        public Nurses(String nurseName, String nurseShift){
+        public Nurse(String nurseName, String nurseShift){
             this.nurseName=nurseName;
             this.nurseShift=nurseShift;
         }
@@ -39,8 +39,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
             ArrayList<Patient> patients= new ArrayList<>();
-            ArrayList<Doctors> doctors=new ArrayList<>();
-            ArrayList<Nurses> nurses=new ArrayList<>();
+            ArrayList<Doctor> doctors=new ArrayList<>();
+            ArrayList<Nurse> nurses=new ArrayList<>();
 
         System.out.println("\n Welcome To Hospital Management");
         System.out.println("Enter id : ");
@@ -85,7 +85,7 @@ public class Main {
                         System.out.println("Specialist  ");
                         String spec = sc.nextLine();
 
-                        doctors.add(new Doctors(nam,spec));
+                        doctors.add(new Doctor(nam,spec));
 
                         break;
 
@@ -95,7 +95,7 @@ public class Main {
                         System.out.println("Enter Shift Type : ");
                         String shift = sc.nextLine();
 
-                       nurses.add(new Nurses(nur,shift));
+                       nurses.add(new Nurse(nur,shift));
                         break;
 
                     case 4:
@@ -116,7 +116,7 @@ public class Main {
                         System.out.printf("| %-10s | %-20s | %-20s |", "Doctor Name", "Specification");
                         System.out.println("\n_____________________________________________________________________");
 
-                        for(Doctors d: doctors){
+                        for(Doctor d: doctors){
                             System.out.printf("|%-13s | %-20s |\n", d.doctorName, d.specialist);
                         }
                     default:
