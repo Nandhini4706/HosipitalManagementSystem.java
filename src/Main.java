@@ -1,13 +1,56 @@
 import java.util.*;
+
+    class Patient{
+        private String patientName;
+        private String condition;
+        private String admitDate;
+    public Patient(String patientName, String condition, String admitDate){
+        this.patientName=patientName;
+        this.condition=condition;
+        this.admitDate=admitDate;
+    }
+       public String getPatientName(){
+        return patientName;
+       }
+       public String getCondition(){
+        return condition;
+       }
+       public String getAdmitDate(){
+        return admitDate;
+       }
+    }
+
+class Doctors{
+    private String doctorName;
+    private String specialist;
+    public Doctors(String doctorName, String specialist){
+        this.doctorName=doctorName;
+        this.specialist=specialist;
+
+    }
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public String getSpecialist() {
+        return specialist;
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+            ArrayList<Patient> patients= new ArrayList<>();
+            ArrayList<Doctors> doctors=new ArrayList<>();
+            ArrayList<Patient> nurses=new ArrayList<>();
 
         System.out.println("\n Welcome To Hospital Management");
         System.out.println("Enter id : ");
         String id = sc.nextLine();
         String id2 = "Vellu";
+
 
         if (id.equals(id2)) {
             System.out.println("Access Granted");
@@ -15,13 +58,6 @@ public class Main {
             System.out.println("Access Denied");
         }
 
-            ArrayList<String> patientName= new ArrayList<>();
-            ArrayList<String> patientCondition=new ArrayList<>();
-            ArrayList<String> date=new ArrayList<>();
-            ArrayList<String> docName=new ArrayList<>();
-            ArrayList<String> doctorSpecs=new ArrayList<>();
-            ArrayList<String> nurseName=new ArrayList<>();
-            ArrayList<String> nurseShift=new ArrayList<>();
             while (true) {
                 System.out.println("-------------Menu----------------");
                 System.out.println("1. Add Patient Details");
@@ -36,15 +72,13 @@ public class Main {
                     case 1:
                         System.out.println("Enter Patient Name ");
                         String name=sc.nextLine();
-
                         System.out.println("Condition :");
                         String cat = sc.nextLine();
                         System.out.println("Enter Date Of Admit :");
                         String tim=sc.nextLine();
 
-                        patientName.add(name);
-                        patientCondition.add(cat);
-                        date.add(tim);
+                        patients.add(new Patient(name, cat, tim));
+                        System.out.println("________________Patient added Successfully!_______________");
 
                         break;
                     case 2:
@@ -53,8 +87,8 @@ public class Main {
                         System.out.println("Specialist  ");
                         String spec = sc.nextLine();
 
-                        docName.add(nam);
-                        doctorSpecs.add(spec);
+                        doctors.add(new Doctors(nam,spec));
+
                         break;
 
                     case 3:
