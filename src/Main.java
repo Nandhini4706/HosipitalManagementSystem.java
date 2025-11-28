@@ -1,42 +1,38 @@
 import java.util.*;
 
     class Patient{
-        private String patientName;
-        private String condition;
-        private String admitDate;
+        String patientName;
+        String condition;
+        String admitDate;
     public Patient(String patientName, String condition, String admitDate){
         this.patientName=patientName;
         this.condition=condition;
         this.admitDate=admitDate;
     }
-       public String getPatientName(){
-        return patientName;
-       }
-       public String getCondition(){
-        return condition;
-       }
-       public String getAdmitDate(){
-        return admitDate;
-       }
+
     }
 
 class Doctors{
-    private String doctorName;
-    private String specialist;
+     String doctorName;
+     String specialist;
     public Doctors(String doctorName, String specialist){
         this.doctorName=doctorName;
         this.specialist=specialist;
 
     }
 
-    public String getDoctorName() {
-        return doctorName;
-    }
 
-    public String getSpecialist() {
-        return specialist;
-    }
 }
+class Nurses{
+        String nurseName;
+        String nurseShift;
+
+        public Nurses(String nurseName, String nurseShift){
+            this.nurseName=nurseName;
+            this.nurseShift=nurseShift;
+        }
+}
+
 
 public class Main {
     public static void main(String[] args) {
@@ -44,7 +40,7 @@ public class Main {
 
             ArrayList<Patient> patients= new ArrayList<>();
             ArrayList<Doctors> doctors=new ArrayList<>();
-            ArrayList<Patient> nurses=new ArrayList<>();
+            ArrayList<Nurses> nurses=new ArrayList<>();
 
         System.out.println("\n Welcome To Hospital Management");
         System.out.println("Enter id : ");
@@ -63,7 +59,8 @@ public class Main {
                 System.out.println("1. Add Patient Details");
                 System.out.println("2. Doctor Details");
                 System.out.println("3. Nurse Details");
-                System.out.println("4. View table ");
+                System.out.println("4. View Patient table ");
+                System.out.println("5. View Doctor table ");
                 System.out.println("Enter Your Choice : ");
                 int n = sc.nextInt();
                 sc.nextLine();
@@ -78,6 +75,7 @@ public class Main {
                         String tim=sc.nextLine();
 
                         patients.add(new Patient(name, cat, tim));
+
                         System.out.println("________________Patient added Successfully!_______________");
 
                         break;
@@ -97,22 +95,33 @@ public class Main {
                         System.out.println("Enter Shift Type : ");
                         String shift = sc.nextLine();
 
-                        nurseName.add(nur);
-                        nurseShift.add(shift);
+                       nurses.add(new Nurses(nur,shift));
                         break;
 
                     case 4:
+
                         System.out.println("\n--------------------------------------------------------------------");
-                        System.out.printf("| %-10s | %-15s | %-12s |", "Patient Name", "Condition","Admit Date");
+                        System.out.printf("| %-10s | %-20s | %-20s |", "Patient Name", "Condition","Admit Date");
                         System.out.println("\n--------------------------------------------------------------------");
 
-                        for(int i=0; i<patientName.size(); i++){
-                            System.out.printf("|%-10s | %-15s | %-12s |\n", patientName.get(i), patientCondition.get(i), date.get(i));
+                        for(Patient p: patients) {
+                            System.out.printf("|%-13s | %-20s | %-20s |\n",  p.patientName, p.condition, p.admitDate);
 
                         }
                         System.out.println("----------------------------------------------------------------------");
                         break;
 
+                    case 5:
+                        System.out.println("\n_____________________________________________________________________");
+                        System.out.printf("| %-10s | %-20s | %-20s |", "Doctor Name", "Specification");
+                        System.out.println("\n_____________________________________________________________________");
+
+                        for(Doctors d: doctors){
+                            System.out.printf("|%-13s | %-20s |\n", d.doctorName, d.specialist);
+                        }
+                    default:
+                        System.out.println("_______Please Enter Valid Choice_______");
+                        break;
                 }
             }
         }
